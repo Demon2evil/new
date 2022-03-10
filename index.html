@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>IVY moda</title>
+</head>
+<body>
+ <header>
+     <div class="logo">
+       <a href="index.html"> <img src="./images/logo.png"></a>
+     </div>
+     <div class="menu">
+        <li><a href="">Nữ</a>
+        <ul class="sub-menu" >
+            <li><a href="./cartegory.html">Hàng Mới Về</a></li>
+            <li><a href="">Collection</a></li>
+            <li><a href="">Áo</a>
+                <ul>
+                    <li><a href=""> Áo Sơ Mi</a></li>
+                    <li><a href=""> Áo Len Nữ</a></li>
+                    <li><a href=""> Áo Thun Nữ</a></li>
+                    <li><a href=""> Áo Vest Nữ</a></li>
+                    <li><a href=""> Áo Khoác Nữ</a></li>
+                </ul>
+            </li>
+            <li><a href="">Quần Nữ</a>
+                <ul>
+                    <li><a href=""> Quần Jeans Nữ</a></li>
+                    <li><a href=""> Quần Lửng/Short Nữ</a></li>
+                    <li><a href=""> Quần Dài Nữ</a></li>
+                </ul>
+            </li>
+        </ul>
+        </li>
+        <li><a href="">Nam</a></li>
+        <li><a href="">Trẻ Em</a></li>
+        <li><a href="">Sale</a></li>
+        <li><a href="">Khẩu Trang</a></li>
+        <li><a href="">BST</a></li>
+        <li><a href="">Thông tin</a></li>
+     </div>
+     <div class="other">
+        <li><input placeholder="Tìm Kiếm" type="text"><i class="fa-solid fa-magnifying-glass"></i></li>
+        <li><a class="fa fa-paw" href=""></a></li>
+        <li><a class="fa fa-user" href=""></a></li>
+        <li><a class="fa fa-shopping-bag" href=""></a></li>
+     </div>
+ </header>
+ <section id="Slider">
+    <div class="aspect-ratio-169">
+        <img src="./images/slider1.jpg"  alt="">
+        <img src="./images/slider2.jpg"   alt="">
+        <img src="./images/slider3.jpg"   alt="">
+    </div>
+    <div class="dot-container">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+ </section>
+ <section class="app-container">
+     <p>Tải Ứng Dụng IVY moda</p>
+     <div class="app-google">
+         <a href="https://apps.apple.com/app/id1430094474?fbclid=IwAR3xAzj-xTmtj35aQUB8KhTLk1zFgyw2zssisSyn9qkRA6w4fgt6kI7j8Q8"><img src="./images/appstore.jpg" alt=""></a>
+         <img src="./images/googleplay.jpg" alt="">
+     </div>
+    <p>Nhận Bản Tin Ivy moda</p>
+    <input type="text" placeholder="Nhập email của bạn...">
+ </section>
+ <div class="footer-top">
+     <li><a href=""><img src="./images/dathongbao.png" alt=""></a></li>
+     <li><a href=""></a>Liên Hệ</li>
+     <li><a href=""></a>Tuyển Dụng</li>
+     <li><a href=""></a>Giới Thiệu</li>
+     <li>
+         <a href="" class="fab fa-facebook-f"></a>
+         <a href=""class="fab fa-twitter"></a>
+         <a href=""class="fab fa-youtube"></a>
+     </li>
+ </div>
+<div class="footer-center">
+    <p>
+        Công ty Cổ phần Dự Kim với số đăng ký kinh doanh: 0105777650 <br>
+        Địa chỉ đăng ký: Tổ dân phố Tháp, P.Đại Mỗ, Q.Nam Từ Liêm, TP.Hà Nội, Việt Nam - 0243 205 2222 <br>
+        Đặt hàng online : <span>0246 662 3434</span> .
+        </p>
+</div>
+<div class="footer-bottom">
+    ©Ivymoda All rights reserved
+</div>
+</body>
+<script>
+    const header = document.querySelector("header")
+window.addEventListener("scroll",function(){
+    x = window.pageYOffset
+    if(x>0){
+        header.classList.add("sticky")
+    }
+    else{
+        header.classList.remove("sticky")
+    }
+})
+    const imgPosition =document.querySelectorAll(".aspect-ratio-169 img")
+    const imgContainer =document.querySelector('.aspect-ratio-169')
+    const dotItem = document.querySelectorAll(".dot")
+    let imgNumber = imgPosition.length
+    let index=0
+    imgPosition.forEach(function(image,index){
+        image.style.left = index*100 + "%"
+        dotItem[index].addEventListener("click",function(){
+            slider (index)
+
+        })
+    })
+    function imgSlide(){
+        index++;
+        console.log(index)
+        if(index>=imgNumber){index=0}
+        slider (index)
+    }
+    function slider(index){
+        imgContainer.style.left = "-" + index*100 + "%"
+        // const dotActive = document.querySelector("active")
+        // dotItem[index].classList.add("active")
+        // dotActive.classList.remove("active")
+    }
+    setInterval(imgSlide,5000)
+</script>
+</html>
